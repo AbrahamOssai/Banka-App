@@ -4,7 +4,7 @@
   "description": "A web based Banking Application for mobile and desktop",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -R nyan specs/index-spec.js",
     "start": "node src/index.js",
     "babel": "./node_modules/.bin/babel src"
   },
