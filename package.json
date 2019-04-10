@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AbrahamOssai/Banka-App/issues"
   },
-  "homepage": "https://github.com/AbrahamOssai/Banka-App#readme"
+  "homepage": "https://github.com/AbrahamOssai/Banka-App#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
