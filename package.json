@@ -18,7 +18,13 @@
   },
   "homepage": "https://github.com/AbrahamOssai/Banka-App#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.4.3",
     "chalk": "^2.4.2",
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3"
   }
 }
