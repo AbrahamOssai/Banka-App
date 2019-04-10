@@ -1,0 +1,19 @@
+{
+  "name": "banka-app",
+  "version": "1.0.0",
+  "description": "A web based Banking Application for mobile and desktop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbrahamOssai/Banka-App.git"
+  },
+  "author": "Ifeanyichukwu Abraham Ossai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbrahamOssai/Banka-App/issues"
+  },
+  "homepage": "https://github.com/AbrahamOssai/Banka-App#readme"
+}
