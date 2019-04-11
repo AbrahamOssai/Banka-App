@@ -2,11 +2,10 @@
   "name": "banka-app",
   "version": "1.0.0",
   "description": "A web based Banking Application for mobile and desktop",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "mocha -R nyan specs/index-spec.js",
-    "start": "node src/index.js",
-    "babel": "./node_modules/.bin/babel src"
+    "start": "nodemon --exec babel-node app.js",
+    "test": "mocha --require @babel/register --exit || true"
   },
   "repository": {
     "type": "git",
@@ -20,18 +19,24 @@
   "homepage": "https://github.com/AbrahamOssai/Banka-App#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.3",
-    "cai": "^4.2.0",
+    "@babel/register": "^7.0.0",
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "chalk": "^2.4.2",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.16.4",
+    "dotenv": "^6.2.0",
     "mocha": "^6.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0"
+    "eslint-plugin-import": "^2.16.0",
+    "nodemon": "^1.18.11"
   }
 }
