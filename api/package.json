@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon --exec babel-node app.js",
-    "test": "mocha --require @babel/register --exit || true"
+    "test": "mocha --recursive --require @babel/register --exit || true",
+    "generate-lcov": "nyc report — reporter=text-lcov > lcov.info", 
+    "coveralls-coverage": "coveralls < lcov.info",
+    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
+    "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage"
   },
   "repository": {
     "type": "git",
@@ -34,9 +38,12 @@
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.3",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
+    "mocha-lcov-reporter": "^1.3.0",
     "nodemon": "^1.18.11"
   }
+
 }
