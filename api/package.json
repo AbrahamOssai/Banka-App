@@ -4,14 +4,12 @@
   "description": "A web based Banking Application for mobile and desktop",
   "main": "app.js",
   "scripts": {
-    "start": "node dist/app.js",
-    "start-dev": "nodemon --exec babel-node app.js",
-    "test": "nyc mocha --recursive --require @babel/register --exit || true",
-    "serve": "node dist/app.js",
-    "build": "babel server --copy-files --out-dir dist",
-    "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "postbuild": "npm run build"
+    "start": "nodemon --exec babel-node app.js",
+    "test": "mocha --recursive --require @babel/register --exit || true",
+    "generate-lcov": "nyc report --reporter=lcov --reporter=text-lcov > lcov.info",
+    "coveralls-coverage": "coveralls < lcov.info",
+    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
+    "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage"
   },
   "repository": {
     "type": "git",

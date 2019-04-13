@@ -1,17 +1,13 @@
 language: node_js
-env:
-  global:
-    - CC_TEST_REPORTER_ID=e7c52e80bc897ddb4276fb6546d40a74035e2d9d5da43b81ef12cb6ea152b317
-    - NODE_ENV=test
 node_js:
- - "8.12.0"
-before_script:
-  - yarn global add nyc
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+  - "stable"
+cache:
+  directories:
+    - "node_modules"
+before_install: cd ./api
+install:
+  - npm install
 script:
- - npm run coveralls
- - npm run coverage
-after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - npm run test
+after_success: 
+  — npm run coverage
