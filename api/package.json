@@ -11,7 +11,7 @@
     "build": "babel server --copy-files --out-dir dist",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "post-build-script": "npm run build"
+    "postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
