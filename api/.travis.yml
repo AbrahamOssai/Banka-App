@@ -1,13 +1,16 @@
-language: node_js
-node_js:
-  - "stable"
-cache:
-  directories:
-    - "node_modules"
-before_install: cd ./api
-install:
-  - npm install
+# single test suite, non-parallel build.
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=724312fe7d72a51b3792eb957fe487d57bab5bb95f7e2f91c63445d571bea7d6
+language: ruby
+rvm:
+  - 2.2.0
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
-  - npm run test
-after_success: 
-  — npm run coverage
+  - bundle exec rspec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
