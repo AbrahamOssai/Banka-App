@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import app from '../app';
+import app from '..';
 
 describe('app', () => {
     it('should exist', () => {
