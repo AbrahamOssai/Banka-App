@@ -15,6 +15,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/v1', v1routes({ Router }));
 app.get('/', (req, res) => res.send({ message: 'Made it to the Root. Welcome...' }).status(200));
-app.listen(PORT);
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 export default app;
