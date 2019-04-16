@@ -4,7 +4,8 @@
   "description": "A web based Banking Application for mobile and desktop",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node api/index.js",
+    "start": "babel-node api/index.js",
+    "start:dev": "nodemon --exec babel-node api/index.js",
     "test": "nyc mocha --recursive --require @babel/register api/test  --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
