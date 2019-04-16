@@ -2,12 +2,7 @@ import express from 'express';
 
 const router = express.Router();
 
-function authRoutes(authDepends) {
-  const {
-    UserController,
-    UserMiddleware,
-  } = authDepends;
-
+function authRoutes({ UserController, UserMiddleware }) {
   const { validateLogin, validateSignup } = UserMiddleware;
   const { loginUser, registerUser } = UserController;
 

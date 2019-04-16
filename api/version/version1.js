@@ -1,11 +1,11 @@
-import routes from '../routes/index';
+import routes from '../routes';
 
 function v1Module({ Router }) {
   const router = Router();
 
   router.get('/', (req, res) => res.status(200).json({
-    message: 'Welcome to BANKA-APP version 1',
     status: '200',
+    message: 'Welcome to BANKA-APP version 1',
   }));
 
   router.use('/', routes({ Router }));

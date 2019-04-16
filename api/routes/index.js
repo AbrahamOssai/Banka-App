@@ -1,10 +1,10 @@
-import UserController from '../controllers/userController';
-import accountController from '../controllers/accountController';
-import transactionController from '../controllers/transactionController';
+import {
+  UserController, AccountController, TransactionController,
+} from '../controllers';
 
-import UserMiddleware from '../middlewares/UserMiddleware';
-import accountMiddleware from '../middlewares/accountMiddleware';
-import transactionMiddleware from '../middlewares/transactionMiddleware';
+import {
+  UserMiddleware, AccountMiddleware, TransactionMiddleware,
+} from '../middlewares';
 
 import authRoute from './auth';
 import accountRoute from './accounts';
@@ -19,10 +19,10 @@ function routes({ Router }) {
   // User Routes
 
   // Account routes
-  router.use('/accounts', accountRoute({ accountMiddleware, accountController, Router }));
+  router.use('/accounts', accountRoute({ AccountMiddleware, AccountController, Router }));
 
   // Transaction routes
-  router.use('/transactions/:accountNumber', transRoute({ transactionMiddleware, transactionController, Router }));
+  router.use('/transactions/:accountNumber', transRoute({ TransactionMiddleware, TransactionController, Router }));
 
   return router;
 }

@@ -1,0 +1,523 @@
+/* General Styles */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font: normal 16px sans-serif;
+	color: white;
+}
+
+nav {
+	list-style: none;
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	opacity: 0.90;
+	color: white;
+
+}
+
+a:hover {
+	opacity: 1;
+}
+
+input {
+	border-radius: 5px;
+	border: none;
+	height: 25px;
+	width: 170px;
+	box-shadow: 0 1px rgb(56, 56, 56);
+}
+
+body {
+	background-color: #2680EB;
+}
+
+
+/* General Table styles */
+
+thead,
+tfoot {
+	color: grey;
+}
+
+table thead div {
+	background-color: whitesmoke;
+	border-radius: 10px;
+	color: grey;
+}
+table div {
+	background-color: white;
+	height: 100%;
+	width: 100%;
+
+}
+table tr {
+	margin: 2px;
+}
+
+table thead h4{
+	padding: 2px 6px;
+}
+
+table tbody div h4{
+	padding: 2px 4px;
+	text-align: center;
+	color: black;
+	margin: 2px;
+}
+
+table .balance h4 {
+	text-align: right;
+}
+
+table a.btn {
+	border-radius: 20px;
+	background-color: green;
+	/* border-style: none; */
+	color: white;
+	padding: 2px 10px;
+	text-align: center;
+	box-shadow: 0 1px rgb(12, 82, 3);
+	margin: 4px;
+
+}
+
+
+/* Header Styles */
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 50px;
+	height: 60px;
+	background-color: #2680EB
+
+}
+
+header h1 {
+	font-family: "Quicksand", sans-serif;
+	/* text-shadow: 0 1px rgba(56, 56, 56, 0.5); */
+}
+
+header nav {
+	display: flex;
+	margin-right: -15px;
+	align-items: center;
+}
+
+header nav ul {
+	display: flex;
+}
+
+header nav .nav-group {
+	display: flex;
+	height: 40px;
+	align-items: center;
+}
+
+header nav .profile-name:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+header nav .profile-name {
+	display: flex;
+	flex-direction: column;
+	align-items:  flex-end;
+	margin-right: 5px;
+	opacity: 0.75;
+}
+
+header nav img {
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+}
+
+header nav ul li {
+	margin: 0 15px;
+	list-style: none;
+	/* text-shadow: 0 1px rgb(56, 56, 56, 0.3); */
+}
+
+/* Main Section Styles */
+
+main {
+	display: flex;
+	height: calc(100vh - 60px);
+}
+
+/* Signup area styles */
+
+.signup-area {
+	background-color: #014278;
+	width: 45%;
+}
+
+/* Form styles */
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 30%;
+	width: 70%;
+	background-color: #0274BA;
+	color: white;
+	margin: 80px auto;
+	border-radius: 10px;
+}
+
+form h2 {
+	margin-top: 10px;
+}
+
+form .form-group {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	max-width: 90%;
+	padding-top: 25px;
+}
+
+form .form-item {
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+}
+
+form .form-item label{
+	text-shadow: 0 1px rgb(56, 56, 56);
+}
+
+form button {
+	width: 200px;
+	background-color: green;
+	border: none;
+	border-radius: 25px;
+	margin-bottom: 25px;
+	margin-top: 25px;
+	line-height: 30px;
+	font-size: 20px;
+	outline: none;
+	cursor: pointer;
+	box-shadow: 0 1px rgb(12, 82, 3);
+}
+
+/* Sign in area styles */
+form .sign-in {
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: space-around;
+	flex-wrap: wrap;
+	max-width: 90%;
+	padding-top: 25px;
+}
+
+
+
+/* General display styles */
+
+.general-display{
+	width: 70%;
+	background-image: url(images/beach.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* sidebar area styles */
+
+main {
+	display: flex;
+}
+
+main section.sidebar {
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+	background-color: #014278;
+	height: 100%;
+	padding: 5px;
+}
+
+main section.sidebar img{
+
+	width: 30px;
+	height: 30px
+
+}
+
+
+main section.sidebar .menu-group {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding-top: 50px;
+
+}
+
+main section.sidebar .menu-item {
+	display: flex;
+	align-items: center;
+	margin: 15px 0;
+
+}
+
+main section.sidebar .menu-item h5 {
+	margin-left: 10px;
+	font-weight: normal;
+	opacity: 0.75;
+	font-size: 1rem;
+
+}
+
+main section.sidebar .menu-item h5:hover {
+	opacity: 1;
+
+}
+
+/* dashboard area styles */
+
+main section.dashboard-area {
+	display: flex;
+	justify-content: center;
+	width: 75%;
+	height: 100%;
+	/* padding: 0 5px 5px 5px; */
+}
+
+main section.dashboard-area .dashboard {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 97%;
+	height: 100%;
+	background-color: #4793EE;
+	padding-left: 50px;
+	padding-top: 20px;
+}
+
+main section.dashboard-area .dashboard .title {
+	color: white;
+	text-align: left;
+}
+
+main section.dashboard-area .dashboard .accounts {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	height: 45%;
+	width: 100%;
+
+}
+
+main section.dashboard-area .dashboard .accounts-box {
+	display: flex;
+	background-color: #014278;
+	align-items: center;
+	justify-content: center;
+	width: 90%;
+	height: 80%;
+}
+
+main section.dashboard-area .dashboard .recent-transactions {
+	height: 45%;
+
+}
+
+main section.dashboard-area .dashboard .accounts.new-account {
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+
+}
+
+main section.dashboard-area .dashboard.new {
+	align-items: center;
+}
+
+main section.dashboard-area .dashboard.hist {
+	justify-content: space-between;
+
+}
+
+main section.dashboard-area .dashboard .search {
+	height: 100px;
+	max-height: 250px;
+
+}
+
+main section.dashboard-area .dashboard .search form {
+	height: 95%;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 99%;
+
+}
+
+main section.dashboard-area .dashboard .search form button{
+	margin-top: 40px
+}
+
+
+main section.dashboard-area .dashboard .search form .form-group {
+	flex-direction: row;
+	flex-wrap: wrap-reverse;
+	width: 20%;
+	padding-top: 5px;
+
+}
+
+.account-details {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+	height: 100px;
+
+}
+
+.account-details h4{
+	font-weight: normal;
+	padding: 15px;
+
+}
+
+.delete {
+	width: 200px;
+	background-color: red;
+	border: none;
+	border-radius: 25px;
+	line-height: 30px;
+	font-size: 20px;
+	outline: none;
+	cursor: pointer;
+	box-shadow: 0 1px rgb(12, 82, 3);
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.title {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+
+}
+
+button.green {
+	width: 200px;
+	background-color: green;
+	border: none;
+	border-radius: 25px;
+	line-height: 30px;
+	font-size: 20px;
+	outline: none;
+	cursor: pointer;
+	box-shadow: 0 1px rgb(12, 82, 3);
+	/* margin-left: 20px; */
+
+}
+
+.btn-group {
+	display: flex;
+	margin-bottom: 10px;
+	align-items: center;
+	justify-content: space-between;
+	text-align: center;
+	width: 70%;
+}
+
+
+main section.dashboard-area .dashboard .accounts-box img {
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+}
+
+main section.dashboard-area .dashboard .accounts-box.user {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: centre;
+	background-color: #0274BA;
+	height: 200px;
+}
+
+main section.dashboard-area .dashboard .accounts-box.user .main-area{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 70%;
+}
+
+main section.dashboard-area .dashboard .accounts-box.user .details {
+	display: flex;
+	height: 150px;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+main section.dashboard-area .dashboard .accounts-box.user .right-area {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+	width: 30%;
+	background-color: #014278;
+	}
+
+.index {
+	position: relative;
+	justify-content: right;
+	text-align: right;
+	min-height: 100vh;
+	width: 100%;
+	height: 100%;
+}
+
+.index .back-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-image: url(./images/mount.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.index .side {
+	margin-top: 100px;
+	margin-right: 50px;
+}
+
+.index .side h1 {
+	padding: 10px;
+	font-weight: normal;
+}
+
+#idx {
+	background: none;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="staff-dashboard.html">Banka</a></h1>
+
+        <nav>
+            <div class="nav-group">
+                <div class="profile-name">
+                    <h3>Ifeanyichukwu (Staff)</h3>
+                    <h4>abraham.ossai@gmail.com</h4>
+                </div>
+                <img src="images/Ify.jpg" alt="profile-image">
+            </div>
+
+            <ul>
+                <li><a href="sign-in.html">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class ="sidebar">
+            <div class="hamburger">
+                <img src="images/hamburger.png" alt="hamburger">
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-item">
+                    <img src="images/icon.png" alt="icon">
+                    <h5><a href="staff-dashboard.html">Dashboard</a></h5>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/icon.png" alt="icon">
+                    <h5><a href="staff-bank-accounts.html">View Bank Accounts</a></h5>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/icon.png" alt="icon">
+                    <h5><a href="staff-account-record-view.html">View Bank Account Record</a></h5>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/icon.png" alt="icon">
+                    <h5><a href="staff-delete-page.html">Delete Account</a></h5>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/icon.png" alt="icon">
+                    <h5><a href="staff-users-view.html">Users</a></h5>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/icon.png" alt="icon">
+                    <h5><a href="#">Preferences</a></h5>
+                </div>
+            </div>
+        </section>
+
+        <section class = "dashboard-area">
+            <div class="dashboard hist">
+                <div class="title">
+                    <h2>USERS</h2> 
+                </div>
+
+                <div class="accounts-box search">
+                    <form action="">
+                        <div class="form-group sign-in">
+                            <div class = "form-item">
+                                <label for="fName">First Name:</label>
+                                <input type="text" id ="fName">
+                            </div>
+                        </div>
+
+                        <div class="form-group sign-in">
+                            <div class = "form-item">
+                                <label for="uId">User ID:</label>
+                                <input type="text" id ="uId">
+                            </div>
+                        </div>
+                        
+                        <button>Search</button>
+                    </form>
+                </div>
+
+                <div class="accounts">
+                    <h3>Search Results - Users</h3>
+                    
+                    <div class="accounts-box">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><div><h4>User ID</h4></div></th>
+                                    <th><div><h4>First Name</h4></div></th>
+                                    <th><div><h4>User Type</h4></div></th>
+                                    <th><div><h4>User Email</h4></div></th>
+                                    <th><div><h4>IsAdmin?</h4></div></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td><div><h4>FOO12398786</h4></div></td>
+                                    <td><div><h4>Ifeanyichukwu</h4></div></td>
+                                    <td><div><h4>Admin</h4></div></td>
+                                    <td><div><h4>abraham.ossai@gmail.com</h4></div></td>
+                                    <td><div><h4>Yes</h4></div></td>
+                                    <td><a href="staff-user-view.html" class="btn">View User</a></td>
+                                </tr>
+
+                                <tr>
+                                    <td><div><h4>FOO12398786</h4></div></td>
+                                    <td><div><h4>Ifeanyichukwu</h4></div></td>
+                                    <td><div><h4>Admin</h4></div></td>
+                                    <td><div><h4>abraham.ossai@gmail.com</h4></div></td>
+                                    <td><div><h4>Yes</h4></div></td>
+                                    <td><a href="staff-user-view.html" class="btn">View User</a></td>
+                                </tr>
+
+                                <tr>
+                                    <td><div><h4>FOO12398786</h4></div></td>
+                                    <td><div><h4>Ifeanyichukwu</h4></div></td>
+                                    <td><div><h4>Admin</h4></div></td>
+                                    <td><div><h4>abraham.ossai@gmail.com</h4></div></td>
+                                    <td><div><h4>Yes</h4></div></td>
+                                    <td><a href="staff-user-view.html" class="btn">View User</a></td>
+                                </tr>
+
+                                <tr>
+                                    <td><div><h4>FOO12398786</h4></div></td>
+                                    <td><div><h4>Ifeanyichukwu</h4></div></td>
+                                    <td><div><h4>Admin</h4></div></td>
+                                    <td><div><h4>abraham.ossai@gmail.com</h4></div></td>
+                                    <td><div><h4>Yes</h4></div></td>
+                                    <td><a href="staff-user-view.html" class="btn">View User</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

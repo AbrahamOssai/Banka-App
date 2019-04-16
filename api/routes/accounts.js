@@ -1,14 +1,8 @@
 import express from 'express';
 
 const router = express.Router();
-function accountRoutes(accountDepends) {
-  const {
-    accountController,
-    accountMiddleware,
-  } = accountDepends;
-
-
-  const { validateAccount, validateUpdate } = accountMiddleware;
+function accountRoutes({ AccountController, AccountMiddleware }) {
+  const { validateAccount, validateUpdate } = AccountMiddleware;
 
   const {
     createAccount,
@@ -16,7 +10,7 @@ function accountRoutes(accountDepends) {
     deleteAccount,
     listAccount,
     singleAccount,
-  } = accountController;
+  } = AccountController;
 
   router.post('/', validateAccount, createAccount);
 
@@ -24,7 +18,6 @@ function accountRoutes(accountDepends) {
   router.get('/:accountNumber', singleAccount);
   router.patch('/:accountNumber', validateUpdate, updateAccount);
   router.delete('/:accountNumber', deleteAccount);
-
 
   return router;
 }

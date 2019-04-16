@@ -1,15 +1,18 @@
-import Joi from 'joi';
 
-class transactionValidation {
-  static validateTransaction(transaction) {
-    const transactionSchema = {
-      type: Joi.string().valid('debit', 'credit'),
-      accountNumber: Joi.string().min(5),
-      cashier: Joi.number().required(),
-      amount: Joi.number().required(),
-    };
+function transactionValidation({ joi }) {
+  class TransactionValidation {
+    static validateTransaction(transaction) {
+      const transactionSchema = {
+        type: joi.string().valid('debit', 'credit'),
+        accountNumber: joi.string().min(5),
+        cashier: joi.number().required(),
+        amount: joi.number().required(),
+      };
 
-    return Joi.validate(transaction, transactionSchema);
+      return joi.validate(transaction, transactionSchema);
+    }
   }
+  return TransactionValidation;
 }
+
 export default transactionValidation;
