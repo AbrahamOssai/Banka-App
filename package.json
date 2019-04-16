@@ -2,7 +2,11 @@
   "name": "banka-app",
   "version": "1.0.0",
   "description": "A web based Banking Application for mobile and desktop",
-  "main": "index.js",
+  "main": "api/index.js",
+  "engines": {
+    "node": "10.15.1",
+    "npm": "6.4.1"
+  },
   "scripts": {
     "start": "babel-node api/index.js",
     "start:dev": "nodemon --exec babel-node api/index.js",
