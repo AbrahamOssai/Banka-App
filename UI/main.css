@@ -610,7 +610,7 @@ main section.dashboard-area .dashboard .accounts-box.user .right-area {
 }
 
 .credit {
-	width: 150px;
+	width: 180px;
 	background-color: white;
 	border: 1px solid greenyellow;
 	border-radius: 5px;
@@ -624,7 +624,7 @@ main section.dashboard-area .dashboard .accounts-box.user .right-area {
 }
 
 .debit {
-	width: 150px;
+	width: 180px;
 	background-color: white;
 	border: 1px solid red;
 	border-radius: 5px;
