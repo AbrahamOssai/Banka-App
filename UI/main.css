@@ -49,6 +49,16 @@ i.fas.fa-search {
 	padding-right: 30px;
 }
 
+.fas.fa-user-plus {
+	color: green;
+	margin-right: 10px;
+}
+
+.fas.fa-user {
+	color: green;
+	margin-right: 10px;
+}
+
 input {
 	border-radius: 5px;
 	border: none;
@@ -191,8 +201,11 @@ main {
 /* Signup area styles */
 
 .signup-area {
-	background-color:rgba(85, 188, 219, 1);
+	background: url(./images/bank-safe.jpg);
 	width: 45%;
+	box-shadow: inset 0px 2px 3px 2px rgba(0,0,0,0.15);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 /* Form styles */
@@ -203,7 +216,7 @@ form {
 	align-items: center;
 	min-width: 30%;
 	width: 70%;
-	background-color: #0274BA;
+	background-color: #014278;
 	color: white;
 	margin: 80px auto;
 	border-radius: 10px;
@@ -263,7 +276,7 @@ form .sign-in {
 
 .general-display{
 	width: 70%;
-	background-image: url(images/beach.jpeg);
+	background-image: url(images/card-money.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -396,15 +409,14 @@ main section.dashboard-area .accounts.search.plain {
 	align-items: center;
 	justify-content: center;
 	width: 90%;
-	height: 80%;
 }
 
 main section.dashboard-area .accounts.search.plain form {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	background-color: white ;
 	align-items:	center;
-	justify-content: space-around;
+	justify-content: space-between;
 	width: 100%;
 	height: 100%;
 }
@@ -413,6 +425,7 @@ main section.dashboard-area .accounts.search.plain form .new {
 	border: 1px solid orange;
 	width: 100%;
 	box-shadow: none;
+	height: 50%;
 }
 
 main section.dashboard-area .dashboard .recent-transactions {
