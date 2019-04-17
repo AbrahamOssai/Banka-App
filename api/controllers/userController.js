@@ -11,7 +11,7 @@ function userContrl({ users, jwt, bcrypt }) {
       let user = users.find(check => check.email === req.body.email);
       if (user) {
         return res.status(400).json({
-          status: 400,
+          status: 409,
           error: 'User already exist',
         });
       }
@@ -54,8 +54,8 @@ function userContrl({ users, jwt, bcrypt }) {
       const user = users.find(check => check.email === req.body.email);
       if (!user) {
         return res.status(400).json({
-          status: 400,
-          error: 'Incorrect email',
+          status: 409,
+          error: 'Email already exists',
         });
       }
 

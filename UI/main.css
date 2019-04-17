@@ -1,5 +1,13 @@
 /* General Styles */
 
+
+/* Color Theme Swatches in RGBA */
+.Cópia-de-Autoestim-1-rgba { color: rgba(254, 146, 33, 1); }
+.Cópia-de-Autoestim-2-rgba { color: rgba(255, 255, 255, 1); }
+.Cópia-de-Autoestim-3-rgba { color: rgba(85, 188, 219, 1); }
+.Cópia-de-Autoestim-4-rgba { color: rgba(80, 135, 166, 1); }
+.Cópia-de-Autoestim-5-rgba { color: rgba(0, 62, 102, 1); }
+
 * {
 	margin: 0;
 	padding: 0;
@@ -8,12 +16,12 @@
 
 html {
 	font: normal 16px sans-serif;
-	color: white;
+	color: #FFFFFF;
 }
 
 nav {
 	list-style: none;
-	color: white;
+	color: #FFFFFF;
 }
 
 a {
@@ -26,17 +34,31 @@ a {
 a:hover {
 	opacity: 1;
 }
+i {
+	opacity: 0.75;
+	color: rgba(254, 146, 33, 1);
+}
+
+i:hover {
+	opacity: 1;
+}
+
+i.fas.fa-search {
+	font-size: 30px;
+	padding-right: 30px;
+}
 
 input {
 	border-radius: 5px;
 	border: none;
 	height: 25px;
 	width: 170px;
-	box-shadow: 0 1px rgb(56, 56, 56);
+	padding: 5px;
+	box-shadow: 0 1px black;
 }
 
 body {
-	background-color: #2680EB;
+	background-color: #FFFFFF;;
 }
 
 
@@ -56,6 +78,7 @@ table div {
 	background-color: white;
 	height: 100%;
 	width: 100%;
+	border-radius: 5px;
 
 }
 table tr {
@@ -69,8 +92,12 @@ table thead h4{
 table tbody div h4{
 	padding: 2px 4px;
 	text-align: center;
-	color: black;
+	color: rgba(0, 62, 102, 0.85);
 	margin: 2px;
+}
+
+table tbody div h4:hover {
+	color: rgba(0, 62, 102, 1);
 }
 
 table .balance h4 {
@@ -78,13 +105,13 @@ table .balance h4 {
 }
 
 table a.btn {
-	border-radius: 20px;
-	background-color: green;
+	border-radius: 5px;
+	background-color:  rgba(254, 146, 33, 1);
 	/* border-style: none; */
 	color: white;
 	padding: 2px 10px;
 	text-align: center;
-	box-shadow: 0 1px rgb(12, 82, 3);
+	box-shadow: 0 1px black;
 	margin: 4px;
 
 }
@@ -98,7 +125,7 @@ header {
 	justify-content: space-between;
 	padding: 10px 50px;
 	height: 60px;
-	background-color: #2680EB
+	background-color:#014278;
 
 }
 
@@ -158,7 +185,7 @@ main {
 /* Signup area styles */
 
 .signup-area {
-	background-color: #014278;
+	background-color:rgba(85, 188, 219, 1);
 	width: 45%;
 }
 
@@ -182,8 +209,9 @@ form h2 {
 
 form .form-group {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 	max-width: 90%;
 	padding-top: 25px;
@@ -200,17 +228,17 @@ form .form-item label{
 }
 
 form button {
-	width: 200px;
-	background-color: green;
+	width: inherit;
+	background-color: rgb(201, 235, 201);
 	border: none;
-	border-radius: 25px;
+	border-radius: 5px;
 	margin-bottom: 25px;
 	margin-top: 25px;
 	line-height: 30px;
 	font-size: 20px;
 	outline: none;
 	cursor: pointer;
-	box-shadow: 0 1px rgb(12, 82, 3);
+	box-shadow: 0 1px black;
 }
 
 /* Sign in area styles */
@@ -219,8 +247,8 @@ form .sign-in {
 	justify-content: space-around;
 	align-items: space-around;
 	flex-wrap: wrap;
-	max-width: 90%;
-	padding-top: 25px;
+	width: 100%;
+	/* padding-top:; */
 }
 
 
@@ -243,17 +271,15 @@ main {
 main section.sidebar {
 	display: flex;
 	flex-direction: column;
-	width: 25%;
+	width: 17.5%;
 	background-color: #014278;
 	height: 100%;
-	padding: 5px;
+	padding: 20px;
+	box-shadow: inset 1px 0px 6px 1px rgba(0,0,0,0.75);
 }
 
-main section.sidebar img{
-
-	width: 30px;
-	height: 30px
-
+main section.sidebar i{
+	font-size: 25px;
 }
 
 
@@ -290,8 +316,10 @@ main section.sidebar .menu-item h5:hover {
 main section.dashboard-area {
 	display: flex;
 	justify-content: center;
-	width: 75%;
+	width: 82.5%;
 	height: 100%;
+	background-color: rgb(250, 252, 255);
+	box-shadow: inset 1px 0px 6px 1px rgba(0,0,0,0.75);
 	/* padding: 0 5px 5px 5px; */
 }
 
@@ -300,15 +328,16 @@ main section.dashboard-area .dashboard {
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
-	width: 97%;
+	width: 100%;
 	height: 100%;
-	background-color: #4793EE;
+	background-color: rgb(250, 252, 255);
+	box-shadow: inset 0px 1px 6px 1px rgba(0,0,0,0.75);
 	padding-left: 50px;
 	padding-top: 20px;
 }
 
 main section.dashboard-area .dashboard .title {
-	color: white;
+	color: black;
 	text-align: left;
 }
 
@@ -321,6 +350,10 @@ main section.dashboard-area .dashboard .accounts {
 
 }
 
+main section.dashboard-area h3 {
+	color: rgba(0, 62, 102, 1);
+}
+
 main section.dashboard-area .dashboard .accounts-box {
 	display: flex;
 	background-color: #014278;
@@ -328,6 +361,7 @@ main section.dashboard-area .dashboard .accounts-box {
 	justify-content: center;
 	width: 90%;
 	height: 80%;
+	box-shadow: inset 0px 1px 3px 1px rgba(0,0,0,0.15);
 }
 
 main section.dashboard-area .dashboard .recent-transactions {
@@ -398,14 +432,14 @@ main section.dashboard-area .dashboard .search form .form-group {
 
 .delete {
 	width: 200px;
-	background-color: red;
+	background-color: rgba(254, 146, 33, 1);
 	border: none;
 	border-radius: 25px;
 	line-height: 30px;
 	font-size: 20px;
 	outline: none;
 	cursor: pointer;
-	box-shadow: 0 1px rgb(12, 82, 3);
+	box-shadow: 0 1px black;
 	text-align: center;
 	margin-bottom: 10px;
 }
@@ -420,14 +454,14 @@ main section.dashboard-area .dashboard .search form .form-group {
 
 button.green {
 	width: 200px;
-	background-color: green;
+	background-color: rgba(0, 62, 102, 1);
 	border: none;
-	border-radius: 25px;
+	border-radius: 5px;
 	line-height: 30px;
 	font-size: 20px;
 	outline: none;
 	cursor: pointer;
-	box-shadow: 0 1px rgb(12, 82, 3);
+	box-shadow: 0 1px black;
 	/* margin-left: 20px; */
 
 }
