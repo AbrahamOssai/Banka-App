@@ -7,7 +7,7 @@ function transactionContrl({ moment, transactions, accounts }) {
    */
   class transactionController {
     static debitAccount(req, res) {
-      const accountNum = req.params.accountNumber;
+      const accountNum = parseInt(req.body.accountNumber);
       const account = accounts.find(num => num.accountNumber === parseInt(accountNum));
       if (!account) {
         return res.status(400).json({
