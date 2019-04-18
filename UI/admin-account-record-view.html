@@ -6,11 +6,12 @@
     <title>Sign In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="main.js"></script>
 </head>
 <body>
     <header>
-        <h1><a href="admin-dashboard.html">Banka</a></h1>
+        <h1><a href="admin-dashboard.html" class="orange">Banka</a></h1>
         <nav>
             <div class="nav-group">
                 <div class="profile-name">
@@ -28,32 +29,32 @@
     <main>
         <section class ="sidebar">
             <div class="hamburger">
-                <img src="images/hamburger.png" alt="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
 
             <div class="menu-group">
                 <div class="menu-item">
-                    <img src="images/icon.png" alt="icon">
+                    <i class="fas fa-home"></i>
                     <h5><a href="admin-dashboard.html">Dashboard</a></h5>
                 </div>
                 <div class="menu-item">
-                    <img src="images/icon.png" alt="icon">
+                    <i class="fas fa-street-view"></i>
                     <h5><a href="admin-bank-accounts.html">View Bank Accounts</a></h5>
                 </div>
                 <div class="menu-item">
-                    <img src="images/icon.png" alt="icon">
+                    <i class="fas fa-binoculars"></i>
                     <h5><a href="admin-account-record-view.html">View Bank Account Record</a></h5>
                 </div>
                 <div class="menu-item">
-                    <img src="images/icon.png" alt="icon">
+                    <i class="far fa-trash-alt"></i>
                     <h5><a href="admin-delete-page.html">Delete Account</a></h5>
                 </div>
                 <div class="menu-item">
-                    <img src="images/icon.png" alt="icon">
+                    <i class="fas fa-users"></i>
                     <h5><a href="admin-users-view.html">Users</a></h5>
                 </div>
                 <div class="menu-item">
-                    <img src="images/icon.png" alt="icon">
+                    <i class="fas fa-cogs"></i>
                     <h5><a href="#">Preferences</a></h5>
                 </div>
             </div>
@@ -65,40 +66,37 @@
 
                 <div class="title">
                     <h2>BANK ACCOUNT - 1005236521</h2> 
-                    <button class="delete">Delete Account</button>
+                    <button class="debit">Delete Account</button>
                 </div>
 
-                <div class="accounts-box search">
+                <div class="accounts search plain">
                     <form action="">
-                        <div class="form-group sign-in">
-                            <div class = "form-item">
-                                <label for="account-number">Account Number:</label>
-                                <input type="text" id ="account-number">
+                        <div>
+                            <div>
+                                <input class="new" type="text" id ="account-number" placeholder="Account Number">
                             </div>
                         </div>
-                        <div class="form-group sign-in">
-                            <div class = "form-item">
-                                <label for="start-date">Start Date:</label>
-                                <input type="date" id ="start-date">
+
+                        <div >
+                            <div>
+                                <input class="new" type="date" id ="start-date" placeholder="Date">
                             </div>
                         </div>
-                        <div class="form-group sign-in">
-                            <div class = "form-item">
-                                <label for="end-date">End Date:</label>
-                                <input type="date" id ="end-date">
+                        <div >
+                            <div>
+                                <input class="new" type="date" id ="start-date" placeholder="Date">
                             </div>
                         </div>
-                        <div class="form-group sign-in">
-                            <div class = "form-item">
-                                <label for="number-transactions">Number of Transactions:</label>
-                                <input type="number" id ="number-transactions">
+                        <div>
+                            <div>
+                                <input class="new" type="text" id ="account-number" placeholder="Account Number">
                             </div>
                         </div>
                         
-                        <button>Search</button>
+                        <i class="fas fa-search"></i>
                     </form>
+                    
                 </div>
-
                 <div class="account-details">
                    <h4>Account Number - 1005236521</h4>
                    <h4>Account Name - Ifeanyichukwu Abraham Ossai</h4>
@@ -108,8 +106,13 @@
                    <h4>Account Balance - N50,000</h4>
                 </div>
 
+                
+
                 <div class="accounts">
-                    <h3>Transaction History</h3>
+                    <div class="btn-group">
+                        <h3>Transaction History</h3>
+                        
+                    </div>
 
                     <div class="accounts-box">
                         <table>
@@ -152,6 +155,8 @@
                                     <td class="balance"><div><h4>0.00</h4></div></td>
                                     <td class="balance"> <div><h4>5,000</h4></div></td>
                                 </tr>
+                              
+    
                             </tbody>
                         </table>
                     </div>

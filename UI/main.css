@@ -1,5 +1,13 @@
 /* General Styles */
 
+
+/* Color Theme Swatches in RGBA */
+.Cópia-de-Autoestim-1-rgba { color: rgba(254, 146, 33, 1); }
+.Cópia-de-Autoestim-2-rgba { color: rgba(255, 255, 255, 1); }
+.Cópia-de-Autoestim-3-rgba { color: rgba(85, 188, 219, 1); }
+.Cópia-de-Autoestim-4-rgba { color: rgba(80, 135, 166, 1); }
+.Cópia-de-Autoestim-5-rgba { color: rgba(0, 62, 102, 1); }
+
 * {
 	margin: 0;
 	padding: 0;
@@ -8,12 +16,12 @@
 
 html {
 	font: normal 16px sans-serif;
-	color: white;
+	color: #FFFFFF;
 }
 
 nav {
 	list-style: none;
-	color: white;
+	color: #FFFFFF;
 }
 
 a {
@@ -25,6 +33,30 @@ a {
 
 a:hover {
 	opacity: 1;
+	color: orange;
+}
+i {
+	opacity: 0.75;
+	color: rgba(254, 146, 33, 1);
+}
+
+i:hover {
+	opacity: 1;
+}
+
+i.fas.fa-search {
+	font-size: 50px;
+	padding-right: 30px;
+}
+
+.fas.fa-user-plus {
+	color: green;
+	margin-right: 10px;
+}
+
+.fas.fa-user {
+	color: green;
+	margin-right: 10px;
 }
 
 input {
@@ -32,11 +64,12 @@ input {
 	border: none;
 	height: 25px;
 	width: 170px;
-	box-shadow: 0 1px rgb(56, 56, 56);
+	padding: 5px;
+	box-shadow: 0 1px black;
 }
 
 body {
-	background-color: #2680EB;
+	background-color: #FFFFFF;;
 }
 
 
@@ -56,6 +89,7 @@ table div {
 	background-color: white;
 	height: 100%;
 	width: 100%;
+	border-radius: 5px;
 
 }
 table tr {
@@ -69,8 +103,12 @@ table thead h4{
 table tbody div h4{
 	padding: 2px 4px;
 	text-align: center;
-	color: black;
+	color: rgba(0, 62, 102, 0.85);
 	margin: 2px;
+}
+
+table tbody div h4:hover {
+	color: rgba(0, 62, 102, 1);
 }
 
 table .balance h4 {
@@ -78,17 +116,21 @@ table .balance h4 {
 }
 
 table a.btn {
-	border-radius: 20px;
-	background-color: green;
+	border-radius: 7px;
+	background-color: rgba(254, 146, 33, 1);
 	/* border-style: none; */
 	color: white;
 	padding: 2px 10px;
 	text-align: center;
-	box-shadow: 0 1px rgb(12, 82, 3);
+	box-shadow: 0 1px black;
 	margin: 4px;
-
+	opacity: 0.7;
+	
 }
 
+table a.btn:hover {
+	opacity: 1
+}
 
 /* Header Styles */
 
@@ -98,7 +140,7 @@ header {
 	justify-content: space-between;
 	padding: 10px 50px;
 	height: 60px;
-	background-color: #2680EB
+	background-color:#014278;
 
 }
 
@@ -126,6 +168,7 @@ header nav .nav-group {
 header nav .profile-name:hover {
 	opacity: 1;
 	cursor: pointer;
+	color: orange;
 }
 
 header nav .profile-name {
@@ -158,8 +201,11 @@ main {
 /* Signup area styles */
 
 .signup-area {
-	background-color: #014278;
+	background: url(./images/bank-safe.jpg);
 	width: 45%;
+	box-shadow: inset 0px 2px 3px 2px rgba(0,0,0,0.15);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 /* Form styles */
@@ -170,7 +216,7 @@ form {
 	align-items: center;
 	min-width: 30%;
 	width: 70%;
-	background-color: #0274BA;
+	background-color: #014278;
 	color: white;
 	margin: 80px auto;
 	border-radius: 10px;
@@ -182,8 +228,9 @@ form h2 {
 
 form .form-group {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 	max-width: 90%;
 	padding-top: 25px;
@@ -200,17 +247,17 @@ form .form-item label{
 }
 
 form button {
-	width: 200px;
-	background-color: green;
+	width: inherit;
+	background-color: rgb(201, 235, 201);
 	border: none;
-	border-radius: 25px;
+	border-radius: 5px;
 	margin-bottom: 25px;
 	margin-top: 25px;
 	line-height: 30px;
 	font-size: 20px;
 	outline: none;
 	cursor: pointer;
-	box-shadow: 0 1px rgb(12, 82, 3);
+	box-shadow: 0 1px black;
 }
 
 /* Sign in area styles */
@@ -219,8 +266,8 @@ form .sign-in {
 	justify-content: space-around;
 	align-items: space-around;
 	flex-wrap: wrap;
-	max-width: 90%;
-	padding-top: 25px;
+	width: 100%;
+	/* padding-top:; */
 }
 
 
@@ -229,7 +276,7 @@ form .sign-in {
 
 .general-display{
 	width: 70%;
-	background-image: url(images/beach.jpeg);
+	background-image: url(images/card-money.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -243,17 +290,15 @@ main {
 main section.sidebar {
 	display: flex;
 	flex-direction: column;
-	width: 25%;
+	width: 17.5%;
 	background-color: #014278;
 	height: 100%;
-	padding: 5px;
+	padding: 20px;
+	box-shadow: inset 1px 0px 6px 1px rgba(0,0,0,0.75);
 }
 
-main section.sidebar img{
-
-	width: 30px;
-	height: 30px
-
+main section.sidebar i{
+	font-size: 25px;
 }
 
 
@@ -282,6 +327,7 @@ main section.sidebar .menu-item h5 {
 
 main section.sidebar .menu-item h5:hover {
 	opacity: 1;
+	color: orange
 
 }
 
@@ -290,8 +336,11 @@ main section.sidebar .menu-item h5:hover {
 main section.dashboard-area {
 	display: flex;
 	justify-content: center;
-	width: 75%;
+	width: 82.5%;
 	height: 100%;
+	background-color: rgb(250, 252, 255);
+	box-shadow: inset 1px 0px 6px 1px rgba(0,0,0,0.75);
+	overflow: auto;
 	/* padding: 0 5px 5px 5px; */
 }
 
@@ -300,16 +349,34 @@ main section.dashboard-area .dashboard {
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
-	width: 97%;
+	width: 100%;
 	height: 100%;
-	background-color: #4793EE;
+	background-color: rgb(250, 252, 255);
+	box-shadow: inset 0px 1px 6px 1px rgba(0,0,0,0.75);
 	padding-left: 50px;
 	padding-top: 20px;
+	overflow: auto;
+}
+
+main section.dashboard-area .dashboard.new {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: unset;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(250, 252, 255);
+	box-shadow: inset 0px 1px 6px 1px rgba(0,0,0,0.75);
+	padding-left: 50px;
+	padding-top: 20px;
+	overflow: auto;
 }
 
 main section.dashboard-area .dashboard .title {
-	color: white;
+	color: rgba(0, 62, 102, 1);
 	text-align: left;
+	justify-content: space-between;
+	width: 90%;
 }
 
 main section.dashboard-area .dashboard .accounts {
@@ -318,7 +385,11 @@ main section.dashboard-area .dashboard .accounts {
 	align-items: flex-start;
 	height: 45%;
 	width: 100%;
+	padding-bottom: 20px;
+}
 
+main section.dashboard-area h3 {
+	color: rgba(0, 62, 102, 1);
 }
 
 main section.dashboard-area .dashboard .accounts-box {
@@ -328,6 +399,33 @@ main section.dashboard-area .dashboard .accounts-box {
 	justify-content: center;
 	width: 90%;
 	height: 80%;
+	box-shadow: inset 0px 1px 3px 1px rgba(0,0,0,0.15);
+	border-radius: 5px;
+}
+
+main section.dashboard-area .accounts.search.plain {
+	display: flex;
+	background-color: white ;
+	align-items: center;
+	justify-content: center;
+	width: 90%;
+}
+
+main section.dashboard-area .accounts.search.plain form {
+	display: flex;
+	flex-direction: row;
+	background-color: white ;
+	align-items:	center;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+}
+
+main section.dashboard-area .accounts.search.plain form .new {
+	border: 1px solid orange;
+	width: 100%;
+	box-shadow: none;
+	height: 50%;
 }
 
 main section.dashboard-area .dashboard .recent-transactions {
@@ -385,27 +483,29 @@ main section.dashboard-area .dashboard .search form .form-group {
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	align-items: flex-end;
+	align-items: flex-start;
 	height: 100px;
+	width: 100%
 
 }
 
 .account-details h4{
 	font-weight: normal;
 	padding: 15px;
+	color:  #014278;
 
 }
 
 .delete {
 	width: 200px;
-	background-color: red;
+	background-color: rgba(254, 146, 33, 1);
 	border: none;
 	border-radius: 25px;
 	line-height: 30px;
 	font-size: 20px;
 	outline: none;
 	cursor: pointer;
-	box-shadow: 0 1px rgb(12, 82, 3);
+	box-shadow: 0 1px black;
 	text-align: center;
 	margin-bottom: 10px;
 }
@@ -420,14 +520,14 @@ main section.dashboard-area .dashboard .search form .form-group {
 
 button.green {
 	width: 200px;
-	background-color: green;
+	background-color: rgba(0, 62, 102, 1);
 	border: none;
-	border-radius: 25px;
+	border-radius: 5px;
 	line-height: 30px;
 	font-size: 20px;
 	outline: none;
 	cursor: pointer;
-	box-shadow: 0 1px rgb(12, 82, 3);
+	box-shadow: 0 1px black;
 	/* margin-left: 20px; */
 
 }
@@ -521,3 +621,38 @@ main section.dashboard-area .dashboard .accounts-box.user .right-area {
 	width: 100%;
 	z-index: 1;
 }
+
+.credit {
+	width: 180px;
+	background-color: white;
+	border: 1px solid greenyellow;
+	border-radius: 5px;
+	line-height: 30px;
+	font-size: 20px;
+	outline: none;
+	cursor: pointer;
+	box-shadow: 0 1px black;
+	color: #014278;
+	/* margin-left: 20px; */
+}
+
+.debit {
+	width: 180px;
+	background-color: white;
+	border: 1px solid red;
+	border-radius: 5px;
+	line-height: 30px;
+	font-size: 20px;
+	outline: none;
+	cursor: pointer;
+	box-shadow: 0 1px black;
+	color: red;
+	/* margin-left: 20px; */
+}
+
+/* Color Theme Swatches in RGBA */
+.orange { color: rgba(254, 146, 33, 1); }
+.Cópia-de-Autoestim-2-rgba { color: rgba(255, 255, 255, 1); }
+.Cópia-de-Autoestim-3-rgba { color: rgba(85, 188, 219, 1); }
+.Cópia-de-Autoestim-4-rgba { color: rgba(80, 135, 166, 1); }
+.Cópia-de-Autoestim-5-rgba { color: rgba(0, 62, 102, 1); }
