@@ -410,6 +410,7 @@ main section.dashboard-area .accounts.search.plain {
 	align-items: center;
 	justify-content: center;
 	width: 90%;
+	height: 400px;
 }
 
 main section.dashboard-area .accounts.search.plain form {
@@ -463,10 +464,6 @@ main section.dashboard-area .dashboard .search form {
 	align-items: center;
 	width: 99%;
 
-}
-
-main section.dashboard-area .dashboard .search form button{
-	margin-top: 40px
 }
 
 
@@ -632,7 +629,6 @@ main section.dashboard-area .dashboard .accounts-box.user .right-area {
 	cursor: pointer;
 	box-shadow: 0 1px rgb(212, 177, 177);
 	color: #014278;
-	/* margin-left: 20px; */
 }
 
 .credit-lg {
@@ -650,7 +646,6 @@ main section.dashboard-area .dashboard .accounts-box.user .right-area {
 	cursor: pointer;
 	box-shadow: 0 1px black;
 	color: red;
-	/* margin-left: 20px; */
 }
 
 main section.dashboard-area .accounts.search.plain form.flex-row  {
@@ -660,7 +655,7 @@ main section.dashboard-area .accounts.search.plain form.flex-row  {
 	align-items:	center;
 	justify-content: space-around;
 	width: 100%;
-	height: 100%;
+	height: 100px;
 	flex-wrap: wrap;
 	margin: auto;
 	
