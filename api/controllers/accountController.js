@@ -8,13 +8,14 @@ function accountContrl({ users, accounts, moment }) {
 
   class AccountController {
     static createAccount(req, res) {
-      let account = users.find(user => user.email === req.body.email);
-      if (!account) {
-        return res.status(400).json({
-          status: 400,
-          error: 'sign up before creating account',
-        });
-      }
+      let account = users.find(user => user.email === req.body.email); 
+      // //check logic here - Bank account creation
+      // if (!account) {
+      //   return res.status(400).json({
+      //     status: 400,
+      //     error: 'sign up before creating account',
+      //   });
+      // }
 
       account = {
         id: accounts.length + 1,

@@ -3,7 +3,7 @@
 function transactionContrl({ moment, transactions, accounts }) {
   /**
    * @exports
-   * @class accountController
+   * @class transactionContrl
    */
   class transactionController {
     static debitAccount(req, res) {
