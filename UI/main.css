@@ -483,6 +483,7 @@ main section.dashboard-area .dashboard .search form .form-group {
 	align-items: flex-start;
 	height: 100px;
 	width: 80%;
+	margin-top: -40px;
 
 }
 
@@ -674,3 +675,8 @@ main section.dashboard-area .accounts.search.plain form.flex-row.half-width {
 .Cópia-de-Autoestim-3-rgba { color: rgba(85, 188, 219, 1); }
 .Cópia-de-Autoestim-4-rgba { color: rgba(80, 135, 166, 1); }
 .Cópia-de-Autoestim-5-rgba { color: rgba(0, 62, 102, 1); }
+
+.btn-width {
+	width: 120px;
+	height: 61px;
+}
