@@ -52,12 +52,12 @@ function userContrl({ users, jwt, bcrypt }) {
 
     static loginUser(req, res) {
       const user = users.find(check => check.email === req.body.email);
-      // if (!user) {
-      //   return res.status(400).json({
-      //     status: 409,
-      //     error: 'Email already exists',
-      //   });
-      // }
+      if (!user) {
+        return res.status(400).json({
+          status: 409,
+          error: 'User does not exist, please register',
+        });
+      }
 
       const check = bcrypt.compareSync(req.body.password, user.password);
       if (!check) {
