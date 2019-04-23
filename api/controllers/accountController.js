@@ -18,7 +18,7 @@ function accountContrl({ users, accounts, moment }) {
       // }
 
       account = {
-        id: accounts.length + 1,
+        accountId: accounts.length + 1,
         accountNumber: Math.floor(Math.random() * 9000000000) + 1000000000,
         createdOn: moment().format('LL', 'hh:mm'),
         firstName: account.firstName,

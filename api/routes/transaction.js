@@ -2,12 +2,13 @@ import express from 'express';
 
 const router = express.Router();
 
-function transRoutes({ TransactionController, TransactionMiddleware }) {
+function transRoutes({ TransactionController, TransactionMiddleware, AuthMiddleware }) {
   const { debitAccount, creditAccount } = TransactionController;
   const { validateTransaction } = TransactionMiddleware;
+  const { isStaff } = AuthMiddleware;
 
-  router.post('/debit', validateTransaction, debitAccount);
-  router.post('/credit', validateTransaction, creditAccount);
+  router.post('/debit', isStaff, validateTransaction, debitAccount);
+  router.post('/credit', isStaff, validateTransaction, creditAccount);
 
   return router;
 }

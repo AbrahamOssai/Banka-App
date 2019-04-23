@@ -37,6 +37,11 @@ function userValidation({ joi }) {
           .max(12)
           .trim()
           .required(),
+        type: joi
+          .string()
+          .valid('client', 'staff'),
+        isAdmin: joi
+          .boolea
       };
       return joi.validate(user, userSchema);
     }

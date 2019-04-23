@@ -3,7 +3,7 @@ import {
 } from '../controllers';
 
 import {
-  UserMiddleware, AccountMiddleware, TransactionMiddleware,
+  UserMiddleware, AccountMiddleware, TransactionMiddleware, AuthMiddleware, 
 } from '../middlewares';
 
 import authRoute from './auth';
@@ -19,10 +19,10 @@ function routes({ Router }) {
   // User Routes
 
   // Account routes
-  router.use('/accounts', accountRoute({ AccountMiddleware, AccountController, Router }));
+  router.use('/accounts', accountRoute({ AccountMiddleware, AccountController, Router, AuthMiddleware }));
 
   // Transaction routes
-  router.use('/transactions/:accountNumber', transRoute({ TransactionMiddleware, TransactionController, Router }));
+  router.use('/transactions/:accountNumber', transRoute({ TransactionMiddleware, TransactionController, Router, AuthMiddleware }));
 
   return router;
 }

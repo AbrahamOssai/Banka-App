@@ -8,7 +8,7 @@ function userContrl({ users, jwt, bcrypt }) {
 
   class UserController {
     static registerUser(req, res) {
-      let user = users.find(check => check.email === req.body.email);
+      const user = users.find(check => check.email === req.body.email);
       if (user) {
         return res.status(400).json({
           status: 409,
@@ -16,22 +16,26 @@ function userContrl({ users, jwt, bcrypt }) {
         });
       }
 
-      user = {
+      const newUser = {
         id: users.length + 1,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
         type: req.body.type,
+        isAdmin: req.body.isAdmin || false,
         password: bcrypt.hashSync(req.body.password),
       };
-      users.push(user);
+      users.push(newUser);
+
+      const {
+        email, id, type, firstName, lastName,
+      } = newUser;
 
       const payload = {
-        email: user.email,
-        type: user.type,
+        email, type, id,
       };
 
-      const token = jwt.sign(payload, 'privatekey', {
+      const token = jwt.sign(payload, process.env.MY_SECRET, {
         expiresIn: '24h',
       });
 
@@ -41,11 +45,11 @@ function userContrl({ users, jwt, bcrypt }) {
         message: 'Registration successful',
         data: {
           token,
-          id: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          password: user.password,
+          id,
+          firstName,
+          lastName,
+          email,
+          type,
         },
       });
     }
@@ -70,8 +74,7 @@ function userContrl({ users, jwt, bcrypt }) {
       // Generate token
       const payload = {
         id: user.id,
-        firstName: user.firstName,
-        lastName: user.lastName,
+        type: user.type,
         email: user.email,
       };
       const token = jwt.sign(payload, 'privatekey', {
