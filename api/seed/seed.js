@@ -1,5 +1,5 @@
 export const accounts = [{
-  id: 1,
+  accountId: 1,
   accountNumber: 8596321547,
   createdOn: 'March 11, 2019',
   firstName: 'Ifeanyi',

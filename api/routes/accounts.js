@@ -1,7 +1,7 @@
 import express from 'express';
 
 const router = express.Router();
-function accountRoutes({ AccountController, AccountMiddleware }) {
+function accountRoutes({ AccountController, AccountMiddleware, AuthMiddleware }) {
   const { validateAccount, validateUpdate } = AccountMiddleware;
 
   const {
@@ -12,12 +12,17 @@ function accountRoutes({ AccountController, AccountMiddleware }) {
     singleAccount,
   } = AccountController;
 
-  router.post('/', validateAccount, createAccount);
+  const {
+    isAdminOrStaff,
+    isUserAdminOrStaff,
+  } = AuthMiddleware;
 
-  router.get('/', listAccount);
-  router.get('/:accountNumber', singleAccount);
-  router.patch('/:accountNumber', validateUpdate, updateAccount);
-  router.delete('/:accountNumber', deleteAccount);
+  router.post('/', isUserAdminOrStaff, validateAccount, createAccount);
+
+  router.get('/', isAdminOrStaff, listAccount);
+  router.get('/:accountNumber', isUserAdminOrStaff, singleAccount);
+  router.patch('/:accountNumber', isAdminOrStaff, validateUpdate, updateAccount);
+  router.delete('/:accountNumber', isUserAdminOrStaff, deleteAccount);
 
   return router;
 }
