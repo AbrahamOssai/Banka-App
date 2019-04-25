@@ -18,6 +18,7 @@ export const transactions = [{
   date: 'March 10, 2019',
   time: '07:50',
   accountBalance: '5678909.33',
+  newAccountBalance: '5778909.33',
 }];
 
 export const users = [{

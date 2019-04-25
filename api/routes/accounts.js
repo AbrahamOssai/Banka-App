@@ -10,6 +10,7 @@ function accountRoutes({ AccountController, AccountMiddleware, AuthMiddleware })
     deleteAccount,
     listAccount,
     singleAccount,
+    listTransactions,
   } = AccountController;
 
   const {
@@ -23,6 +24,8 @@ function accountRoutes({ AccountController, AccountMiddleware, AuthMiddleware })
   router.get('/:accountNumber', isUserAdminOrStaff, singleAccount);
   router.patch('/:accountNumber', isAdminOrStaff, validateUpdate, updateAccount);
   router.delete('/:accountNumber', isUserAdminOrStaff, deleteAccount);
+
+  router.get('/:accountNumber/transactions', isUserAdminOrStaff, listTransactions);
 
   return router;
 }
