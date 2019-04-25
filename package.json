@@ -13,7 +13,7 @@
     "build": "babel ./api --out-dir ./api/build",
     "test": "nyc mocha --recursive --require @babel/register api/test  --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "coveralls": "nyc --reporter=text-lcov npm test"
+    "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/AbrahamOssai/Banka-App#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.3",
+    "babel-plugin-istanbul": "^5.1.3",
     "babel-polyfill": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
