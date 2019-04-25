@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/AbrahamOssai/Banka-App#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.4.3",
+    "babel-polyfill": "^6.26.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "chai-http": "^4.2.1",
