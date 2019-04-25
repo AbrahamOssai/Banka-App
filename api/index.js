@@ -7,10 +7,11 @@ import { Pool, Client } from 'pg';
 import cors  from 'cors';
 
 import v1routes from './version/version1';
+import db from './db';
 
 // instantiate expressjs
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 9000;
 
 dotenv.config();
 app.use(cors());
@@ -19,12 +20,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// const client = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: true,
-// });
+// db.createAccountTable();
+// db.createTransactionTable();
+// db.createUserTable();
 
-// client.connect();
+// db.dropTables('users');
+// db.dropTables('transactions');
+// db.dropTables('accounts');
+// db.dropTables('students');
 
 app.use('/api/v1', v1routes({ Router }));
 app.get('/', (req, res) => res.send({ message: 'Made it to the Root. Welcome...' }).status(200));

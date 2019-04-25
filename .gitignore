@@ -13,3 +13,5 @@ docker-compose.yml
 
 coverage
 .nyc_output
+
+.vscode

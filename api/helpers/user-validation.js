@@ -41,7 +41,7 @@ function userValidation({ joi }) {
           .string()
           .valid('client', 'staff'),
         isAdmin: joi
-          .boolea
+          .boolean()
       };
       return joi.validate(user, userSchema);
     }

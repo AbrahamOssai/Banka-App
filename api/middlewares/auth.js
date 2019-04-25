@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
+import jwt from 'jsonwebtoken';
 
-function authMiddleware({ jwt, users }) {
+function authMiddleware() {
   /**
    *
    * @exports
@@ -17,10 +18,12 @@ function authMiddleware({ jwt, users }) {
      */
     static isLoggedIn(req, res, next) {
       try {
+        console.log(req);
         const token = req.headers.authorization.split(' ')[1];
-
+        
         jwt.verify(token, process.env.MY_SECRET, (error, payload) => {
           if (payload) {
+            req.payload = payload;
             return next();
           }
 
@@ -32,7 +35,7 @@ function authMiddleware({ jwt, users }) {
       } catch (e) {
         return res.status(401).json({
           status: 401,
-          error: 'Please login first',
+          error: 'Error occurred',
         });
       }
     }
@@ -48,7 +51,8 @@ function authMiddleware({ jwt, users }) {
             });
           }
 
-          if (payload.id === req.params.userId) { // work on nested routes to get this params
+          if (payload.type === 'client') { // work on nested routes to get this params
+            req.payload = payload;
             return next();
           }
 
@@ -76,9 +80,8 @@ function authMiddleware({ jwt, users }) {
             });
           }
 
-          const user = users.find(check => check.id === payload.id);
-
-          if (user.isAdmin) {
+          if (payload.isAdmin) {
+            req.payload = payload;
             return next();
           }
 
@@ -106,9 +109,8 @@ function authMiddleware({ jwt, users }) {
             });
           }
 
-          const user = users.find(check => check.id === payload.id);
-
-          if (!user.isAdmin && user.type === 'staff') {
+          if (!payload.isAdmin && payload.type === 'staff') {
+            req.payload = payload;
             return next();
           }
 
@@ -128,6 +130,7 @@ function authMiddleware({ jwt, users }) {
     static isAdminOrStaff(req, res, next) {
       try {
         const token = req.headers.authorization.split(' ')[1];
+        console.log(token);
         jwt.verify(token, process.env.MY_SECRET, (error, payload) => {
           if (!payload) {
             return res.status(401).json({
@@ -136,9 +139,8 @@ function authMiddleware({ jwt, users }) {
             });
           }
 
-          const user = users.find(check => check.id === payload.id);
-
-          if (user.type === 'staff') {
+          if (payload.type === 'staff') {
+            req.payload = payload;
             return next();
           }
 
@@ -166,9 +168,8 @@ function authMiddleware({ jwt, users }) {
             });
           }
 
-          const user = users.find(check => check.id === payload.id);
-
-          if ((payload.id === req.params.userId) || (user.type === 'staff')) {
+          if ((payload.type === 'client') || (payload.type === 'staff')) {
+            req.payload = payload;
             return next();
           }
 
