@@ -12,7 +12,7 @@
     "serve": "node ./api/build/index.js",
     "build": "babel ./api --out-dir ./api/build",
     "test": "nyc mocha --timeout 20000 -r @babel/register api/test  --exit",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc report --reporter=lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "repository": {
