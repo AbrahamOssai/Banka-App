@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import "@babel/polyfill";
 import dotenv from 'dotenv';
 import express, { Router } from 'express';
 import logger from 'morgan';
