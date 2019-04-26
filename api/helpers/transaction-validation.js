@@ -5,7 +5,7 @@ function transactionValidation({ joi }) {
       const transactionSchema = {
         type: joi.string().valid('debit', 'credit'),
         accountNumber: joi.string().min(5),
-        cashier: joi.number().required(),
+        // cashier: joi.number().required(),
         amount: joi.number().required(),
       };
 

@@ -1,6 +1,6 @@
 import express from 'express';
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 function transRoutes({ TransactionController, TransactionMiddleware, AuthMiddleware }) {
   const { debitAccount, creditAccount } = TransactionController;

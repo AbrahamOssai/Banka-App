@@ -1,9 +1,7 @@
 /* eslint-disable radix */
 import db from '../db';
 
-function accountContrl({
-  moment, AuthHelp,
-}) {
+function accountContrl({ moment, AuthHelp }) {
   /**
  * @exports
  * @class accountController
@@ -76,10 +74,9 @@ function accountContrl({
     }
 
     static async updateAccount(req, res) {
-    
       try {
         const { rows } = await db.query('SELECT * FROM accounts WHERE account_number = $1', [req.params.accountNumber]);
-        console.log(rows[0]);
+
         const account = rows[0];
 
         if (!account) {
@@ -89,7 +86,6 @@ function accountContrl({
           });
         }
       } catch (err) {
-        console.log(err);
         return res.status(400).json({
           status: 400,
           error: 'Error occured in fetching account Number',
@@ -127,11 +123,14 @@ function accountContrl({
     }
 
     static async deleteAccount(req, res) {
+      // Try block to query database for account
       try {
+        // Query database to get account to delete
         const { rows } = await db.query('SELECT * FROM accounts WHERE account_number = $1', [req.params.accountNumber]);
-        
+
         const account = rows[0];
 
+        // Check if account exists
         if (!account) {
           return res.status(404).json({
             status: 404,
@@ -139,13 +138,15 @@ function accountContrl({
           });
         }
 
-        if ( !(req.payload.id === account.owner || req.payload.type === 'staff') ) {
+        // Check if logged in user is authorised as account owner, admin or staff
+        if (!(req.payload.id === account.owner || req.payload.type === 'staff')) {
           return res.status(404).json({
             status: 404,
             error: 'You are not authorised to delete account',
           });
         }
 
+      // Handle errors in fetching account
       } catch (err) {
         console.log(err);
         return res.status(400).json({
@@ -154,19 +155,18 @@ function accountContrl({
         });
       }
 
-      
+      // Query to delete account from the database
       const query = 'DELETE FROM accounts WHERE account_number = $1 RETURNING *';
 
       const values = [
         req.params.accountNumber,
       ];
 
+      // Try block to delete account from database
       try {
         const { rows } = await db.query(query, values);
-
-        // const { check } = await db.query('SELECT * FROM accounts WHERE account_number = $1', [req.params.accountNumber]);
         
-        // const account = check[0];
+        const account = rows[1];
 
         if (!account) {
           return res.status(200).json({
@@ -174,21 +174,22 @@ function accountContrl({
             message: 'Account successfully deleted',
           });
         }
-        
+
+      // Handle errors in deleting from database
       } catch (err) {
+        console.log(err);
         res.status(400).json({
           status: 400,
           error: 'Error in Deleting',
         });
       }
-
-    };
+    }
 
     static async listAccount(req, res) {
       try {
         const { rows } = await db.query('SELECT * FROM accounts');
         console.log(rows);
-        
+
         const accounts = rows;
 
         return res.status(200).json({
@@ -196,14 +197,13 @@ function accountContrl({
           message: 'List of accounts',
           data: accounts,
         });
-        
       } catch (err) {
         console.log(err);
         res.status(400).json({
           status: 400,
           error: 'Error in connection, please try again',
         });
-      } 
+      }
     }
 
     static singleAccount(req, res) {

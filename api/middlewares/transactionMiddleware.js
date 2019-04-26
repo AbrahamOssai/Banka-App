@@ -18,7 +18,6 @@ function transactionMiddleware({ TransactionValidation }) {
        */
 
     static validateTransaction(req, res, next) {
-      console.log(req.body);
       if (Object.keys(req.body).length === 0) {
         return res.status(400).json({
           status: 400,
