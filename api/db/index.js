@@ -91,16 +91,17 @@ const createTransactionTable = () => {
   });
 };
 
-async function query(text, values) {
-  const client = await pool.connect();
-  try {
-    const res = await client.query(text, values);
-    return res;
-  } catch (err) {
-    console.log(err)
-    return err;
-  }
-};
+function query(text, values) {
+  return new Promise((resolve, reject) => {
+    pool.query(text, values, (err, res) => {
+      if (err) {
+        reject(err);
+      }
+
+      resolve(res);
+    });
+  });
+}
 
 /**
  * Drop Tables
@@ -120,7 +121,6 @@ const dropTables = (table) => {
 
 pool.on('remove', () => {
   console.log('client removed');
-  process.exit(0);
 });
 
 export default {
@@ -131,4 +131,4 @@ export default {
   query,
 };
 
-// require('make-runnable');
+require('make-runnable');

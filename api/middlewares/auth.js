@@ -18,7 +18,6 @@ function authMiddleware() {
      */
     static isLoggedIn(req, res, next) {
       try {
-        console.log(req);
         const token = req.headers.authorization.split(' ')[1];
         
         jwt.verify(token, process.env.MY_SECRET, (error, payload) => {
@@ -80,7 +79,7 @@ function authMiddleware() {
             });
           }
 
-          if (payload.isAdmin) {
+          if (payload.isAdmin === 'true') {
             req.payload = payload;
             return next();
           }
@@ -109,7 +108,7 @@ function authMiddleware() {
             });
           }
 
-          if (!payload.isAdmin && payload.type === 'staff') {
+          if (payload.isAdmin === 'false' && payload.type === 'staff') {
             req.payload = payload;
             return next();
           }
@@ -130,7 +129,6 @@ function authMiddleware() {
     static isAdminOrStaff(req, res, next) {
       try {
         const token = req.headers.authorization.split(' ')[1];
-        console.log(token);
         jwt.verify(token, process.env.MY_SECRET, (error, payload) => {
           if (!payload) {
             return res.status(401).json({

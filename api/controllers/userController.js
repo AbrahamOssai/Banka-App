@@ -1,6 +1,6 @@
-/* eslint-disable consistent-return */
 import db from '../db';
 
+// Use a descriptive name
 function userContrl({ jwt, bcrypt }) {
   /**
    * @exports
@@ -15,13 +15,13 @@ function userContrl({ jwt, bcrypt }) {
         const user = rows[0];
 
         if (user) {
-          return res.status(400).json({
+          return res.status(409).json({
             status: 409,
             error: 'User already exist',
           });
         }
       } catch (err) {
-        res.status(400).json({
+        return res.status(400).json({
           status: 400,
           error: 'Error in connection, please try again',
         });
@@ -52,9 +52,10 @@ function userContrl({ jwt, bcrypt }) {
           expiresIn: '24h',
         });
 
+        // status code 200 is fine 201 for new resources
         res.header('Authorization', token).status(201);
-        res.json({
-          status: 201,
+        return res.status(200).json({
+          status: 200,
           message: 'Registration successful',
           data: {
             token,
@@ -67,7 +68,7 @@ function userContrl({ jwt, bcrypt }) {
           },
         });
       } catch (err) {
-        res.status(400).json({
+        return res.status(400).json({
           status: 400,
           error: 'Error in connection, please try again',
         });
@@ -82,7 +83,7 @@ function userContrl({ jwt, bcrypt }) {
 
         if (!user) {
           return res.status(400).json({
-            status: 409,
+            status: 400,
             error: 'User does not exist, please register',
           });
         }
@@ -103,12 +104,12 @@ function userContrl({ jwt, bcrypt }) {
           email: user.email,
           firstname: user.firstname,
           lastname: user.lastname,
-          isadmin: user.isadmin,
+          isAdmin: user.isadmin,
         };
 
         const token = jwt.sign(payload, process.env.MY_SECRET, { expiresIn: '24h' });
-        
-        res.json({
+
+        return res.status(200).json({
           status: 200,
           message: 'Login successful',
           data: {
@@ -122,7 +123,7 @@ function userContrl({ jwt, bcrypt }) {
           },
         });
       } catch (err) {
-        res.status(400).json({
+        return res.status(400).json({
           status: 400,
           error: 'Error in connection, please try again',
         });

@@ -7,24 +7,22 @@ function transactionContrl({ moment }) {
    * @exports
    * @class transactionContrl
    */
-  class  TransactionController {
+  class TransactionController {
     static async debitAccount(req, res) {
       // Declare variable to store account for debit
-      let account; 
-      console.log(req.params.accountNumber);
-      console.log(req.params);
-      console.log(req.body);
+      let account;
+
       // Try block to query database for account
       try {
         // Retrieve account to be debited
         const { rows } = await db.query('SELECT * FROM accounts WHERE account_number = $1', [req.params.accountNumber]);
-        
-        account = rows[0];
+
+        [account] = rows;
 
         // Check if account exists
         if (!account) {
-          return res.status(400).json({
-            status: 400,
+          return res.status(404).json({
+            status: 404,
             error: 'Account not found',
           });
         }
@@ -38,14 +36,13 @@ function transactionContrl({ moment }) {
         }
 
       // Handle error in retrieving account to be debited
-      } catch {
+      } catch (err) {
         return res.status(404).json({
           status: 404,
           error: 'Error in getting account',
         });
-
       }
-      
+
       // Store old account balance
       const oldBalance = account.balance;
 
@@ -65,7 +62,7 @@ function transactionContrl({ moment }) {
         oldBalance,
         newBalance.toString(),
       ];
-      
+
       // Try block to create and store debit transaction in database
       try {
         const { rows } = await db.query(query, values);
@@ -87,8 +84,8 @@ function transactionContrl({ moment }) {
           const { rows } = await db.query(accountQuery, accountValues);
 
           // return data for successful debit transaction
-          res.status(200).json({
-            status: 200,
+          return res.status(201).json({
+            status: 201,
             message: 'Account successfully debited',
             data: {
               id,
@@ -98,8 +95,8 @@ function transactionContrl({ moment }) {
               type,
               newbalance,
             },
-          })
-       
+          });
+
         // Handle error with updating account balance
         } catch (err) {
           return res.status(400).json({
@@ -108,7 +105,7 @@ function transactionContrl({ moment }) {
           });
         }
 
-      // Handle error with storing transaction 
+      // Handle error with storing transaction
       } catch (err) {
         return res.status(400).json({
           status: 400,
@@ -118,37 +115,36 @@ function transactionContrl({ moment }) {
     }
 
     static async creditAccount(req, res) {
-      // Declare variable to store account for creditt
-      let account; 
+      // Declare variable to store account for credit
+      let account;
 
       // Try block to query database for account
       try {
         // Retrieve account to be credited
         const { rows } = await db.query('SELECT * FROM accounts WHERE account_number = $1', [req.params.accountNumber]);
-        
-        account = rows[0];
+
+        [account] = rows;
 
         // Check if account exists
         if (!account) {
-          return res.status(400).json({
-            status: 400,
+          return res.status(404).json({
+            status: 404,
             error: 'Account not found',
           });
         }
 
-      // Handle error in retrieving account to be debited
-      } catch {
+      // Handle error in retrieving account to be credited
+      } catch (err) {
         return res.status(404).json({
           status: 404,
           error: 'Error in getting account',
         });
-
       }
-      
+
       // Store old account balance
       const oldBalance = account.balance;
 
-      // Execute debit calculation
+      // Execute credit calculation
       const newBalance = parseFloat(account.balance) + parseFloat(req.body.amount);
 
       // Query to create a new transaction
@@ -164,7 +160,7 @@ function transactionContrl({ moment }) {
         oldBalance,
         newBalance.toString(),
       ];
-      
+
       // Try block to create and store credit transaction in database
       try {
         const { rows } = await db.query(query, values);
@@ -185,9 +181,9 @@ function transactionContrl({ moment }) {
         try {
           const { rows } = await db.query(accountQuery, accountValues);
 
-          // return data for successful credit transaction
-          res.status(200).json({
-            status: 200,
+          // return data for successful debit transaction
+          return res.status(201).json({
+            status: 201,
             message: 'Account successfully credited',
             data: {
               id,
@@ -197,17 +193,17 @@ function transactionContrl({ moment }) {
               type,
               newbalance,
             },
-          })
-       
+          });
+
         // Handle error with updating account balance
         } catch (err) {
-          return res.status(400).json({
-            status: 400,
+          return res.status(404).json({
+            status: 404,
             error: 'Error in updating account',
           });
         }
 
-      // Handle error with storing transaction 
+      // Handle error with storing transaction
       } catch (err) {
         return res.status(400).json({
           status: 400,

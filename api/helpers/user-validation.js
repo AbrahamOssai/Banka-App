@@ -41,7 +41,7 @@ function userValidation({ joi }) {
           .string()
           .valid('client', 'staff'),
         isAdmin: joi
-          .boolean()
+          .boolean(),
       };
       return joi.validate(user, userSchema);
     }
@@ -64,7 +64,6 @@ function userValidation({ joi }) {
   }
 
   return UserValidation;
-
 }
 
 export default userValidation;

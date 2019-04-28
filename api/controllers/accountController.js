@@ -12,9 +12,9 @@ function accountContrl({ moment, AuthHelp }) {
       let user;
 
       try {
-        const { rows } = await db.query('SELECT * FROM users WHERE email = $1', [req.body.email]);
-        console.log(rows[0]);
-        user = rows[0];
+        let { rows } = await db.query('SELECT * FROM users');
+
+        user = rows.find(row => row.email === req.body.email);
 
         if (!user) {
           return res.status(404).json({
@@ -23,7 +23,6 @@ function accountContrl({ moment, AuthHelp }) {
           });
         }
       } catch (err) {
-        console.log(err);
         return res.status(400).json({
           status: 400,
           error: 'Error in connection, please try again',
@@ -38,7 +37,7 @@ function accountContrl({ moment, AuthHelp }) {
       const query = 'INSERT INTO accounts(account_number, created_on, owner, type, status, balance ) VALUES($1,$2,$3,$4,$5,$6) returning *';
 
       const values = [
-        Math.floor(Math.random() * 9000000000) + 1000000000,
+        3657878777, //Math.floor(Math.random() * 9000000000) + 1000000000,
         moment().format('LL', 'hh:mm'),
         user.id,
         req.body.type,
@@ -53,7 +52,7 @@ function accountContrl({ moment, AuthHelp }) {
           account_number, type, balance,
         } = rows[0];
 
-        return res.json({
+        return res.status(201).json({
           status: 201,
           message: 'Account created',
           data: {
@@ -77,12 +76,20 @@ function accountContrl({ moment, AuthHelp }) {
       try {
         const { rows } = await db.query('SELECT * FROM accounts WHERE account_number = $1', [req.params.accountNumber]);
 
-        const account = rows[0];
+        const [account] = rows;
 
         if (!account) {
           return res.status(404).json({
             status: 404,
             error: 'Account not found',
+          });
+        }
+
+        // Check if logged in user is authorised as account owner, admin or staff
+        if (!(req.payload.isAdmin)) {
+          return res.status(404).json({
+            status: 404,
+            error: 'You are not authorised to update account',
           });
         }
       } catch (err) {
@@ -106,9 +113,9 @@ function accountContrl({ moment, AuthHelp }) {
           account_number, status,
         } = rows[0];
 
-        return res.json({
-          status: 201,
-          message: 'Successfully updated',
+        return res.status(200).json({
+          status: 200,
+          message: 'Successfully updated Account',
           data: {
             account_number,
             status,
@@ -128,7 +135,7 @@ function accountContrl({ moment, AuthHelp }) {
         // Query database to get account to delete
         const { rows } = await db.query('SELECT * FROM accounts WHERE account_number = $1', [req.params.accountNumber]);
 
-        const account = rows[0];
+        const [account] = rows;
 
         // Check if account exists
         if (!account) {
@@ -148,7 +155,6 @@ function accountContrl({ moment, AuthHelp }) {
 
       // Handle errors in fetching account
       } catch (err) {
-        console.log(err);
         return res.status(400).json({
           status: 400,
           error: 'Error occured in fetching account Number',
@@ -162,11 +168,11 @@ function accountContrl({ moment, AuthHelp }) {
         req.params.accountNumber,
       ];
 
-      // Try block to delete account from database
+      // Try block handling deleting account from database
       try {
         const { rows } = await db.query(query, values);
-        
-        const account = rows[1];
+
+        const [, account] = rows;
 
         if (!account) {
           return res.status(200).json({
@@ -175,10 +181,14 @@ function accountContrl({ moment, AuthHelp }) {
           });
         }
 
+        return res.error(400).json({
+          status: 200,
+          error: 'Failed to delete account, try again',
+        });
+
       // Handle errors in deleting from database
       } catch (err) {
-        console.log(err);
-        res.status(400).json({
+        return res.status(400).json({
           status: 400,
           error: 'Error in Deleting',
         });
@@ -188,7 +198,6 @@ function accountContrl({ moment, AuthHelp }) {
     static async listAccount(req, res) {
       try {
         const { rows } = await db.query('SELECT * FROM accounts');
-        console.log(rows);
 
         const accounts = rows;
 
@@ -198,28 +207,30 @@ function accountContrl({ moment, AuthHelp }) {
           data: accounts,
         });
       } catch (err) {
-        console.log(err);
-        res.status(400).json({
+        return res.status(400).json({
           status: 400,
           error: 'Error in connection, please try again',
         });
       }
     }
 
-    static singleAccount(req, res) {
-      const account = accounts.find(
-        num => num.accountNumber === parseInt(req.params.accountNumber),
-      );
-      if (!account) {
+    static async singleAccount(req, res) {
+      try {
+        const { rows } = await db.query('SELECT * FROM accounts WHERE account_number = $1', [req.params.accountNumber]);
+
+        const accounts = rows;
+
+        return res.status(200).json({
+          status: 200,
+          message: 'Single Account Successfully fetched',
+          data: accounts,
+        });
+      } catch (err) {
         return res.status(400).json({
           status: 400,
-          error: 'Account not found',
+          error: 'Error in connection, please try again',
         });
       }
-      return res.status(200).json({
-        status: 200,
-        data: account,
-      });
     }
 
     static listTransactions(req, res) {
