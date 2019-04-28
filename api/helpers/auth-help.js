@@ -58,7 +58,7 @@ function authHelp({ jwt }) {
             return false;
           }
 
-          if (payload.isAdmin) {
+          if (payload.isAdmin === 'true') {
             return true;
           }
 
@@ -77,7 +77,7 @@ function authHelp({ jwt }) {
             return false;
           }
 
-          if (!payload.isAdmin && payload.type === 'staff') {
+          if (payload.isAdmin === 'false' && payload.type === 'staff') {
             return true;
           }
 
