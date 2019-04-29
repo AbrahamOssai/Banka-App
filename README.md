@@ -11,8 +11,8 @@ deposit money.
 
 ## Other links
 
-* [UI](https://oluwajhay.github.io/Banka/UI/index.html)<br>
-* [Pivotal Tracker Board](https://www.pivotaltracker.com/n/projects/2320527)
+* [UI]()
+* [Pivotal Tracker Board]()
 
 ### Required Features
 * Users can create an sign up and log in.
