@@ -9,10 +9,6 @@ users can signup and create bank accounts online, but must visit the branch to w
 deposit money.
 
 
-## Other links
-
-* [UI]()
-* [Pivotal Tracker Board]()
 
 ### Required Features
 * Users can create an sign up and log in.
