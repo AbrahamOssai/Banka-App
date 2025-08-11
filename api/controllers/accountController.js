@@ -172,17 +172,17 @@ function accountContrl({ moment, AuthHelp }) {
       try {
         const { rows } = await db.query(query, values);
 
-        const [, account] = rows;
+        const [account] = rows;
 
-        if (!account) {
+        if (account) {
           return res.status(200).json({
             status: 200,
             message: 'Account successfully deleted',
           });
         }
 
-        return res.error(400).json({
-          status: 200,
+        return res.status(400).json({
+          status: 400,
           error: 'Failed to delete account, try again',
         });
 

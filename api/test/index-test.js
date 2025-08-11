@@ -470,25 +470,48 @@ describe('UNIT TESTS FOR CONTROLLERS', () => {
   //   });
   // });
 
-  // describe('DELETE REQUEST', () => {
-  //   it('it should DELETE account', () => {
-  //     chai.request(app)
-  //       .delete('/api/v1/accounts/4952853906')
-  //       .end((err, res) => {
-  //         res.should.have.status(200);
-  //         res.body.should.have.property('message').to.equals('Account deleted');
-  //         res.body.should.have.property('status').to.equals(200);
-  //       });
-  //   });
+  describe('/DELETE REQUEST Delete account', () => {
+    let userToken;
 
-  //   it('it should return error', () => {
-  //     chai.request(app)
-  //       .delete('/api/v1/accounts/2345566767')
-  //       .end((err, res) => {
-  //         res.should.have.status(400);
-  //         res.body.should.have.property('error').to.equals('Account not found');
-  //         res.body.should.have.property('status').to.equals(400);
-  //       });
-  //   });n
-  // });
+    before((done) => {
+      chai
+        .request(app)
+        .post('/api/v1/auth/signin')
+        .send({
+          email: 'abraham.ossai@gmail.com',
+          password: 'andela1234',
+        })
+        .end((err, res) => {
+          const { token } = res.body.data;
+          userToken = `Bearer ${token}`;
+          done();
+        });
+    });
+
+    it('it should DELETE account', (done) => {
+      chai
+        .request(app)
+        .delete('/api/v1/accounts/3657878777')
+        .set('Authorization', userToken)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.property('message').to.equals('Account successfully deleted');
+          res.body.should.have.property('status').to.equals(200);
+          done();
+        });
+    });
+
+    it('it should return error for unknown account', (done) => {
+      chai
+        .request(app)
+        .delete('/api/v1/accounts/2345566767')
+        .set('Authorization', userToken)
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.have.property('error').to.equals('Account not found');
+          res.body.should.have.property('status').to.equals(404);
+          done();
+        });
+    });
+  });
 });
